@@ -13,6 +13,8 @@ export class InfrastructureStack extends Stack {
 
     const websiteServerLogger = new iam.User(this, 'WebsiteServerLogger')
 
+    const websiteServerLoggerAccessKey = new iam.AccessKey(this, "WebsiteServerLoggerAccessKey", { user: websiteServerLogger })
+
     applicationLoggerGroup.addUser(websiteServerLogger)
   }
 }
