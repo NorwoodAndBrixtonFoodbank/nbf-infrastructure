@@ -1,8 +1,11 @@
 # Infrastructure
 
-This is a blank project for CDK development with TypeScript.
+## Prerequisite
+- Node.js
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Get AWS credentials
+Go to [Softwire AWS Start page](https://softwire.awsapps.com/start#/) and select VFB and the appropriate role to assume. 
+Click on `Command line or programmatic access`, and copy the commands to inject your credentials in the terminal.
 
 ## Useful commands
 
