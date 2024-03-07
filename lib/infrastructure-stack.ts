@@ -1,16 +1,18 @@
-import * as cdk from 'aws-cdk-lib';
+import { aws_iam as iam, Stack, StackProps } from 'aws-cdk-lib'
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 
-export class InfrastructureStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+export class InfrastructureStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    const applicationLoggerGroup = new iam.Group(this, 'ApplicationLoggerGroup', {
+      managedPolicies: [
+        iam.ManagedPolicy.fromAwsManagedPolicyName('CloudWatchLogsFullAccess')
+      ]
+    })
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'InfrastructureQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const websiteServerLogger = new iam.User(this, 'WebsiteServerLogger')
+
+    applicationLoggerGroup.addUser(websiteServerLogger)
   }
 }
