@@ -8,7 +8,6 @@ Go to [Softwire AWS Start page](https://softwire.awsapps.com/start#/) and select
 Click on `Command line or programmatic access`, and copy the commands to inject your credentials in the terminal.
 
 ## Useful commands
-
 * `npm run build` to compile typescript to js
 * `npm run watch` to watch for changes and compile
 * `npm run test` to perform the jest unit tests
