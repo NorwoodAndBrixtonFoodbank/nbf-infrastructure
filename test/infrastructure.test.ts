@@ -8,7 +8,7 @@ describe("InfrastructureStack", () => {
   const template = Template.fromStack(stack);
 
   describe("website server log group", () => {
-    test("has retention period of one day", () => {
+    test("has retention period of two weeks", () => {
       template.hasResourceProperties("AWS::Logs::LogGroup", {
         RetentionInDays: 14,
       });
