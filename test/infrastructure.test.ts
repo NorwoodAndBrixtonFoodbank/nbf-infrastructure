@@ -10,7 +10,7 @@ describe("InfrastructureStack", () => {
   describe("website server log group", () => {
     test("has retention period of one day", () => {
       template.hasResourceProperties("AWS::Logs::LogGroup", {
-        RetentionInDays: 1,
+        RetentionInDays: 14,
       });
     });
   });

@@ -34,7 +34,7 @@ export class InfrastructureStack extends Stack {
       this,
       "WebsiteServerLogGroup",
       {
-        retention: RetentionDays.ONE_DAY,
+        retention: RetentionDays.TWO_WEEKS,
         removalPolicy: RemovalPolicy.DESTROY,
       },
     );
