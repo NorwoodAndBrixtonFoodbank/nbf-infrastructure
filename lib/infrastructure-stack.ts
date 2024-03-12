@@ -24,9 +24,9 @@ export class InfrastructureStack extends Stack {
       },
     );
 
-    // The credentials for this IAM user were generated on the AWS console 
+    // The credentials for this IAM user were generated on the AWS console
     // so we don't need to store them in AWS Secrets Manager which is a paid service.
-    const websiteServerLogger = new iam.User(this, "WebsiteServerLogger"); 
+    const websiteServerLogger = new iam.User(this, "WebsiteServerLogger");
 
     applicationLoggerGroup.addUser(websiteServerLogger);
 
@@ -42,6 +42,15 @@ export class InfrastructureStack extends Stack {
     const localWebsiteServerLogStream = new logs.LogStream(
       this,
       "LocalWebsiteServerLogStream",
+      {
+        logGroup: websiteServerLogGroup,
+        removalPolicy: RemovalPolicy.DESTROY,
+      },
+    );
+
+    const prodWebsiteServerLogStream = new logs.LogStream(
+      this,
+      "ProdWebsiteServerLogStream",
       {
         logGroup: websiteServerLogGroup,
         removalPolicy: RemovalPolicy.DESTROY,
