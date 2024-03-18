@@ -57,6 +57,15 @@ export class InfrastructureStack extends Stack {
       },
     );
 
+    const devWebsiteServerLogStream = new logs.LogStream(
+      this,
+      "DevWebsiteServerLogStream",
+      {
+        logGroup: websiteServerLogGroup,
+        removalPolicy: RemovalPolicy.DESTROY,
+      },
+    );
+
     const prodWebsiteServerLogStream = new logs.LogStream(
       this,
       "ProdWebsiteServerLogStream",
